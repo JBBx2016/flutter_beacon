@@ -167,7 +167,8 @@
 - (void) initializeCentralManager {
     if (!self.bluetoothManager) {
         // initialize central manager if it itsn't
-        self.bluetoothManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
+        NSDictionary *options = @{CBCentralManagerOptionShowPowerAlertKey: @NO};
+        self.bluetoothManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue() options:options];
     }
 }
 
